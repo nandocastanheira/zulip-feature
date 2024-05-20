@@ -39,6 +39,7 @@ export type RealmDefaultSettings = {
     send_private_typing_notifications: boolean;
     send_stream_typing_notifications: boolean;
     starred_message_counts: boolean;
+    enable_dm_silent_mode: boolean;
     translate_emoticons: boolean;
     twenty_four_hour_time: boolean;
     user_list_style: boolean;

@@ -10535,6 +10535,11 @@ paths:
                     messages](/help/star-a-message#display-the-number-of-starred-messages).
                   type: boolean
                   example: true
+                enable_dm_silent_mode:
+                  description: |
+                    Enable silent mode for direct messages.
+                  type: boolean
+                  example: false
                 fluid_layout_width:
                   description: |
                     Whether to use the [maximum available screen width](/help/enable-full-width-display)
@@ -10981,6 +10986,8 @@ paths:
               dense_mode:
                 contentType: application/json
               starred_message_counts:
+                contentType: application/json
+              enable_dm_silent_mode:
                 contentType: application/json
               fluid_layout_width:
                 contentType: application/json
@@ -13257,6 +13264,10 @@ paths:
                             description: |
                               Whether clients should display the [number of starred
                               messages](/help/star-a-message#display-the-number-of-starred-messages).
+                          enable_dm_silent_mode:
+                            type: boolean
+                            description: |
+                              Enable silent mode for direct messages.
                           fluid_layout_width:
                             type: boolean
                             description: |
@@ -15559,6 +15570,10 @@ paths:
                             description: |
                               Whether clients should display the [number of starred
                               messages](/help/star-a-message#display-the-number-of-starred-messages).
+                          enable_dm_silent_mode:
+                            description: |
+                              Enable silent mode for direct messages.
+                            type: boolean
                           fluid_layout_width:
                             type: boolean
                             description: |
@@ -16644,6 +16659,14 @@ paths:
                     the `PATCH /settings/display` endpoint.
                   type: boolean
                   example: true
+                enable_dm_silent_mode:
+                  description: |
+                    Enable silent mode for direct messages.
+
+                    **Changes**: New in Zulip 8.0 .
+
+                  type: boolean
+                  example: false
                 fluid_layout_width:
                   description: |
                     Whether to use the [maximum available screen width](/help/enable-full-width-display)
@@ -17198,6 +17221,8 @@ paths:
               web_mark_read_on_scroll_policy:
                 contentType: application/json
               starred_message_counts:
+                contentType: application/json
+              enable_dm_silent_mode:
                 contentType: application/json
               fluid_layout_width:
                 contentType: application/json

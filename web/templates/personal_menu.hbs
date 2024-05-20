@@ -82,6 +82,21 @@
                             </a>
                         </li>
                         {{/if}}
+                        {{#if invisible_mode}}
+                        <li class="link-item hidden-for-spectators navbar-dropdown-menu-inner-list-item">
+                            <a tabindex="0" class="invisible_mode_turn_off navbar-dropdown-menu-link">
+                                <i class="navbar-dropdown-icon zulip-icon zulip-icon-play-circle"></i>
+                                {{#tr}}Turn off silent mode{{/tr}}
+                            </a>
+                        </li>
+                        {{else}}
+                        <li class="link-item hidden-for-spectators navbar-dropdown-menu-inner-list-item">
+                            <a tabindex="0" class="invisible_mode_turn_on navbar-dropdown-menu-link">
+                                <i class="navbar-dropdown-icon zulip-icon zulip-icon-stop-circle"></i>
+                                {{#tr}}Go silent{{/tr}}
+                            </a>
+                        </li>
+                        {{/if}}
                     </ul>
                 </li>
                 <li class="navbar-dropdown-menu-outer-list-item">

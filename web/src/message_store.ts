@@ -88,6 +88,7 @@ export type MessageWithBooleans = (
     collapsed: boolean;
     condensed?: boolean;
     alerted: boolean;
+    silent: boolean;
 };
 
 export type MessageCleanReaction = {
@@ -124,6 +125,8 @@ export type Message = (
     starred_status: string;
     message_reactions: MessageCleanReaction[];
     url: string;
+
+    silent:boolean;
 
     // Used in `markdown.js`, `server_events.js`, and `set_message_booleans`
     flags?: string[];

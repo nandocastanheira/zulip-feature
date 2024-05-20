@@ -182,6 +182,13 @@ export function message_is_notifiable(message) {
         return false;
     }
 
+
+    // If a message is sended i silent mode we don't want to to notify
+    // the recipient
+    if(message.silent){
+        return false;
+    }
+
     // If a message is edited multiple times, we want to err on the side of
     // not spamming notifications.
     if (message.notification_sent) {

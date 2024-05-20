@@ -52,6 +52,7 @@ export type UserSettings = (StreamNotificationSettings &
     send_read_receipts: boolean;
     send_stream_typing_notifications: boolean;
     starred_message_counts: boolean;
+    enable_dm_silent_mode: boolean;
     timezone: string;
     translate_emoticons: boolean;
     twenty_four_hour_time: boolean;

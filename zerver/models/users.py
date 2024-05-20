@@ -156,6 +156,7 @@ class UserBaseSettings(models.Model):
     ### Notifications settings. ###
 
     email_notifications_batching_period_seconds = models.IntegerField(default=120)
+    enable_dm_silent_mode = models.BooleanField(default=False)
 
     # Stream notifications.
     enable_stream_desktop_notifications = models.BooleanField(default=False)
@@ -337,6 +338,7 @@ class UserBaseSettings(models.Model):
         automatically_follow_topics_policy=int,
         automatically_unmute_topics_in_muted_streams_policy=int,
         automatically_follow_topics_where_mentioned=bool,
+        enable_dm_silent_mode=bool,
     )
 
     notification_setting_types = {
