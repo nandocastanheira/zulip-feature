@@ -76,6 +76,14 @@ export function save_uncollapsed(message: Message): void {
     send_flag_update_for_messages([message.id], "collapsed", "remove");
 }
 
+export function mark_as_silent(message: Message): void {
+    send_flag_update_for_messages([message.id], "silent", "add");
+}
+
+export function mark_as_not_silent(message: Message): void {
+    send_flag_update_for_messages([message.id], "silent", "remove");
+}
+
 export function unstar_all_messages(): void {
     const starred_msg_ids = starred_messages.get_starred_msg_ids();
     send_flag_update_for_messages(starred_msg_ids, "starred", "remove");
