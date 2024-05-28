@@ -729,6 +729,8 @@ def create_user_messages(
         base_flags |= UserMessage.flags.stream_wildcard_mentioned
     if message.recipient.type in [Recipient.DIRECT_MESSAGE_GROUP, Recipient.PERSONAL]:
         base_flags |= UserMessage.flags.is_private
+    if message.silent_mode:
+        base_flags |= UserMessage.flags.silent_mode
 
     # For long_term_idle (aka soft-deactivated) users, we are allowed
     # to optimize by lazily not creating UserMessage rows that would
@@ -1753,6 +1755,7 @@ def check_message(
     message.recipient = recipient
     message.type = message_type
     message.realm = realm
+    message.silent_mode = sender.enable_dm_silent_mode
     if addressee.is_stream():
         message.set_topic_name(topic_name)
     if forged and forged_timestamp is not None:

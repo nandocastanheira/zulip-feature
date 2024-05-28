@@ -581,6 +581,7 @@ def update_realm_user_settings_defaults(
     enable_followed_topic_desktop_notifications: Json[bool] | None = None,
     enable_followed_topic_email_notifications: Json[bool] | None = None,
     enable_followed_topic_push_notifications: Json[bool] | None = None,
+    enable_dm_silent_mode: Json[bool] | None = None,
     enable_followed_topic_audible_notifications: Json[bool] | None = None,
     enable_followed_topic_wildcard_mentions_notify: Json[bool] | None = None,
     notification_sound: str | None = None,

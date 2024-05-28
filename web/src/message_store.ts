@@ -95,6 +95,7 @@ export type MessageWithBooleans = (
     collapsed: boolean;
     condensed?: boolean;
     alerted: boolean;
+    silent_mode: boolean;
 };
 
 export type MessageCleanReaction = {
@@ -219,6 +220,7 @@ export function convert_raw_message_to_message_with_booleans(
         topic_wildcard_mentioned: convert_flag("topic_wildcard_mentioned"),
         collapsed: convert_flag("collapsed"),
         alerted: convert_flag("has_alert_word"),
+        silent_mode: convert_flag("silent_mode"),
     };
 
     // Once we have set boolean flags here, the `flags` attribute is
@@ -255,6 +257,7 @@ export function update_booleans(message: Message, flags: string[]): void {
     message.stream_wildcard_mentioned = convert_flag("stream_wildcard_mentioned");
     message.topic_wildcard_mentioned = convert_flag("topic_wildcard_mentioned");
     message.alerted = convert_flag("has_alert_word");
+    message.silent_mode = convert_flag("silent_mode");
 }
 
 export function update_sender_full_name(user_id: number, new_name: string): void {

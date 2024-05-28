@@ -304,6 +304,7 @@ def json_change_settings(
         json_validator=check_bool, default=None
     ),
     pm_content_in_desktop_notifications: bool | None = REQ(json_validator=check_bool, default=None),
+    enable_dm_silent_mode: bool | None = REQ(json_validator=check_bool, default=None),
     desktop_icon_count_display: int | None = REQ(
         json_validator=check_int_in(UserProfile.DESKTOP_ICON_COUNT_DISPLAY_CHOICES), default=None
     ),

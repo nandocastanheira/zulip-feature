@@ -11432,6 +11432,11 @@ paths:
                     **Changes**: New in Zulip 8.0 (feature level 189).
                   type: boolean
                   example: false
+                enable_dm_silent_mode:
+                  description: |
+                    Enable silent mode for direct messages reaction.
+                  type: boolean
+                  example: false
                 email_notifications_batching_period_seconds:
                   description: |
                     The duration (in seconds) for which the server should wait to batch
@@ -11692,6 +11697,8 @@ paths:
               enable_followed_topic_desktop_notifications:
                 contentType: application/json
               enable_followed_topic_email_notifications:
+                contentType: application/json
+              enable_dm_silent_mode:
                 contentType: application/json
               enable_followed_topic_push_notifications:
                 contentType: application/json
@@ -14414,6 +14421,10 @@ paths:
                               Enable audible desktop notifications for messages sent to followed topics.
 
                               **Changes**: New in Zulip 8.0 (feature level 189).
+                          enable_dm_silent_mode:
+                            type: boolean
+                            description: |
+                              Enable silent mode for direct messages reaction.
                           email_notifications_batching_period_seconds:
                             type: integer
                             description: |
@@ -16883,6 +16894,10 @@ paths:
                               Enable audible desktop notifications for messages sent to followed topics.
 
                               **Changes**: New in Zulip 8.0 (feature level 189).
+                          enable_dm_silent_mode:
+                            type: boolean
+                            description: |
+                              Enable silent mode for direct messages reaction.
                           enable_digest_emails:
                             type: boolean
                             description: |
@@ -18161,6 +18176,13 @@ paths:
                     **Changes**: New in Zulip 8.0 (feature level 189).
                   type: boolean
                   example: false
+                enable_dm_silent_mode:
+                  description: |
+                    Enable silent mode for direct messages reaction.
+
+                    **Changes**: New in Zulip 8.0 (feature level 189).
+                  type: boolean
+                  example: false
                 enable_followed_topic_audible_notifications:
                   description: |
                     Enable audible desktop notifications for messages sent to followed topics.
@@ -18448,6 +18470,8 @@ paths:
               enable_followed_topic_email_notifications:
                 contentType: application/json
               enable_followed_topic_push_notifications:
+                contentType: application/json
+              enable_dm_silent_mode:
                 contentType: application/json
               enable_followed_topic_audible_notifications:
                 contentType: application/json

@@ -24,6 +24,7 @@ export const realm_default_settings_schema = z.object({
     enable_followed_topic_desktop_notifications: z.boolean(),
     enable_followed_topic_email_notifications: z.boolean(),
     enable_followed_topic_push_notifications: z.boolean(),
+    enable_dm_silent_mode: z.boolean(),
     enable_followed_topic_wildcard_mentions_notify: z.boolean(),
     enable_login_emails: z.boolean(),
     enable_marketing_emails: z.boolean(),

@@ -198,6 +198,10 @@ export function message_is_notifiable(message) {
         return false;
     }
 
+    if (message.silent_mode) {
+        return false;
+    }
+
     // If a message is edited multiple times, we want to err on the side of
     // not spamming notifications.
     if (message.notification_sent) {
@@ -240,6 +244,10 @@ export function should_send_desktop_notification(message) {
     // Always notify for testing notifications.
     if (message.type === "test-notification") {
         return true;
+    }
+
+    if (message.silent_mode) {
+        return false;
     }
 
     // For streams, send if desktop notifications are enabled for all
@@ -309,6 +317,10 @@ export function should_send_audible_notification(message) {
     // If `None` is selected as the notification sound, never send
     // audible notifications regardless of other configuration.
     if (user_settings.notification_sound === "none") {
+        return false;
+    }
+
+    if (message.silent_mode) {
         return false;
     }
 

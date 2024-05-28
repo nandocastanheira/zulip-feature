@@ -248,6 +248,7 @@ export function dispatch_normal_event(event) {
                 wildcard_mention_policy: noop,
                 enable_read_receipts: settings_account.update_send_read_receipts_tooltip,
                 enable_guest_user_indicator: noop,
+                enable_dm_silent_mode: noop,
             };
             switch (event.op) {
                 case "update":
@@ -735,6 +736,7 @@ export function dispatch_normal_event(event) {
                 "send_private_typing_notifications",
                 "send_read_receipts",
                 "web_navigate_to_sent_message",
+                "enable_dm_silent_mode",
             ];
 
             const original_home_view = user_settings.web_home_view;

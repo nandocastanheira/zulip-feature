@@ -179,6 +179,9 @@ class UserBaseSettings(models.Model):
     # conversation where message was sent.
     web_navigate_to_sent_message = models.BooleanField(default=True)
 
+    # Silent Mode
+    enable_dm_silent_mode = models.BooleanField(default=False)
+
     ### Notifications settings. ###
 
     email_notifications_batching_period_seconds = models.IntegerField(default=120)
@@ -370,6 +373,7 @@ class UserBaseSettings(models.Model):
         automatically_follow_topics_policy=int,
         automatically_unmute_topics_in_muted_streams_policy=int,
         automatically_follow_topics_where_mentioned=bool,
+        enable_dm_silent_mode=bool,
     )
 
     notification_setting_types = {

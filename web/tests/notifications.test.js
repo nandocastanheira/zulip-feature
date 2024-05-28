@@ -443,3 +443,36 @@ test("basic_notifications", () => {
     assert.equal(n.size, 0);
     assert.equal(last_closed_message_id, message_2.id);
 });
+
+test("silent_mode", () => {
+    // Case 1: Silent Mode On
+    user_settings.enable_dm_silent_mode = true;
+    let message = {
+        id: 1,
+        type: "private",
+        content: "React to my DM",
+        sender_id: "1",
+        to_user_ids: "31",
+        sent_by_me: true,
+        locally_echoed: true,
+        current_user_reacted: false,
+        silent_mode: true,
+    };
+    assert.equal(message_notifications.should_send_desktop_notification(message), false);
+    assert.equal(message_notifications.should_send_audible_notification(message), false);
+
+    // Case 2: Silent Mode Off
+    user_settings.enable_dm_silent_mode = false;
+    message = {
+        id: 2,
+        content: "React to my followed topic message",
+        type: "stream",
+        stream_id: general.stream_id,
+        topic: "followed topic",
+        sent_by_me: true,
+        current_user_reacted: false,
+        silent_mode: false,
+    };
+    assert.equal(message_notifications.should_send_desktop_notification(message), true);
+    assert.equal(message_notifications.should_send_audible_notification(message), true);
+});

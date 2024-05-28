@@ -104,7 +104,7 @@ test("process_new_message", () => {
         sender_id: me.user_id,
         type: "private",
         display_recipient: convert_recipients([me, bob, cindy]),
-        flags: ["has_alert_word"],
+        flags: ["has_alert_word", "silent_mode"],
         is_me_message: false,
         id: 2067,
     };
@@ -118,6 +118,7 @@ test("process_new_message", () => {
     assert.equal(message.display_reply_to, "Bob, Cindy");
     assert.equal(message.alerted, true);
     assert.equal(message.is_me_message, false);
+    assert.equal(message.silent_mode, true);
 
     const retrieved_message = message_store.get(2067);
     assert.equal(retrieved_message, message);

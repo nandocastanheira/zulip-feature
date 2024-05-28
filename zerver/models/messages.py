@@ -101,6 +101,8 @@ class AbstractMessage(models.Model):
     # Whether the message contains a link.
     has_link = models.BooleanField(default=False, db_index=True)
 
+    silent_mode = models.BooleanField(default=False, db_index=True)
+
     class Meta:
         abstract = True
 
@@ -470,6 +472,7 @@ class AbstractUserMessage(models.Model):
         # Whether we've sent a push notification to the user's mobile
         # devices for this message that has not been revoked.
         "active_mobile_push_notification",
+        "silent_mode",
     ]
     # Certain flags are used only for internal accounting within the
     # Zulip backend, and don't make sense to expose to the API.
@@ -606,6 +609,12 @@ class UserMessage(AbstractUserMessage):
                     flags__andnz=AbstractUserMessage.flags.active_mobile_push_notification.mask
                 ),
                 name="zerver_usermessage_active_mobile_push_notification_id",
+            ),
+            models.Index(
+                "user_profile",
+                "message",
+                condition=Q(flags__andnz=AbstractUserMessage.flags.silent_mode.mask),
+                name="zerver_usermessage_silent_mode_id",
             ),
         ]
 
