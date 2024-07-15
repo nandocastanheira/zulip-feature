@@ -730,7 +730,11 @@ export function show_edit_bot_info_modal(user_id, $container) {
             );
             $("#edit_service_interface").val(service.interface);
         }
-        if (bot_type === EMBEDDED_BOT_TYPE) {
+        if (
+            bot_type === EMBEDDED_BOT_TYPE &&
+            service !== undefined &&
+            service.config_data !== undefined
+        ) {
             $("#service_data").append(
                 $(
                     render_settings_edit_embedded_bot_service({
